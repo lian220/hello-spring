@@ -1,0 +1,8 @@
+hello/hellospring/discount/RateDiscountPolicyTest.java
+ hello.hellospring.discount.RateDiscountPolicyTest
+hello/hellospring/order/OrderServiceTest.java
+ hello.hellospring.order.OrderServiceTest
+hello/hellospring/member/MemberServiceTest.java
+ hello.hellospring.member.MemberServiceTest
+hello/hellospring/HelloSpringApplicationTests.java
+ hello.hellospring.HelloSpringApplicationTests
