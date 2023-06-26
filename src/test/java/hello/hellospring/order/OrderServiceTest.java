@@ -4,10 +4,10 @@ import hello.hellospring.core.AppConfig;
 import hello.hellospring.member.Grade;
 import hello.hellospring.member.Member;
 import hello.hellospring.service.MemberService;
-import hello.hellospring.service.MemberServiceImpl;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrderServiceTest {
 
@@ -23,11 +23,11 @@ public class OrderServiceTest {
 
     @Test
     void createOrder() {
-        Long memberId = 1L;
+        long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.join(member);
 
         Order order = orderService.createOrder(memberId, "itemA", 10000);
-        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
+        assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
 }

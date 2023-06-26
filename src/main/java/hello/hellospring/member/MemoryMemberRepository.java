@@ -1,8 +1,11 @@
 package hello.hellospring.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository {
 
     //동시성의 예제가 있을수 있어서 concrotationMap을 사용해야 한다.
