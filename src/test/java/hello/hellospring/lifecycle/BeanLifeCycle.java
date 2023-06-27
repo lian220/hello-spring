@@ -1,12 +1,13 @@
 package hello.hellospring.lifecycle;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-public class BeanLifeCycle {
+public class BeanLifeCycle{
 
     @Test
     public void lifeCycleTest() {
@@ -17,6 +18,7 @@ public class BeanLifeCycle {
 
     @Configuration
     static class LifeCycleConfig {
+//        @Bean(initMethod = "init")
         @Bean
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
