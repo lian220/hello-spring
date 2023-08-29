@@ -23,7 +23,7 @@ pipeline {
                sshagent(credentials: ['liantest']) {
                      sh '''
                        scp build/libs/*.jar ubuntu@172.31.37.197:/home/ubuntu
-                       ssh ubuntu@172.31.37.197 "sh bapo.sh" &
+                       ssh ubuntu@172.31.37.197 "sh ~/bapo.sh" &
                       '''
                }
            }
