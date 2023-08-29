@@ -24,6 +24,7 @@ public class HelloController {
     @GetMapping("hello-string")
     @ResponseBody
     public String helloString(@RequestParam("name") String name) {
+        System.out.println("test123");
         return "hello" + name;
     }
 

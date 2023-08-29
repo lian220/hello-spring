@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    tools {
+        gradle 'gradle'
+    }
+    stages {
+        stage('Github') {
+            steps {
+                checkout scmGit(
+                    branches: [[name: 'main']],
+                    extensions: [submodule(parentCredentials: true, trackingSubmodules: true)],
+                    userRemoteConfigs: [[credentialsId: 'github_access_token', url: 'https://github.com/lian220/hello-spring']]
+                )
+            }
+        }
+        stage('Build') {
+            steps {
+                sh "./gradlew clean bootJar"
+            }
+        }
+        stage('Deploy') {
+           steps {
+               sshagent(credentials: ['liantest']) {
+                     sh '''
+                       scp build/libs/*.jar ubuntu@172.31.37.197:/home/ubuntu
+                       ssh ubuntu@172.31.37.197 "sh bapo.sh" &
+                      '''
+               }
+           }
+       }
+    }
+}
