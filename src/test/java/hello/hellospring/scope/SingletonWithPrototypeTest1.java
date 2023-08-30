@@ -21,7 +21,7 @@ public class SingletonWithPrototypeTest1 {
 
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
         prototypeBean2.addCount();
-        assertThat(prototypeBean2.getCount()).isEqualTo(2);
+        assertThat(prototypeBean2.getCount()).isNotEqualTo(2);
     }
 
     @Test

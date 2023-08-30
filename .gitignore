@@ -146,4 +146,7 @@ Desktop.ini
 .gradle
 
 # Ignore Gradle build output directory
-build
+/build
+/bin
+
+.env

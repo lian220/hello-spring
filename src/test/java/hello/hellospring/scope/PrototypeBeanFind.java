@@ -20,7 +20,7 @@ public class PrototypeBeanFind {
         ProtypeBean protypeBean2 = ac.getBean(ProtypeBean.class);
         System.out.println("protypeBean1 = " + protypeBean1);
         System.out.println("protypeBean2 = " + protypeBean2);
-        assertThat(protypeBean1).isSameAs(protypeBean2);
+        assertThat(protypeBean1).isNotSameAs(protypeBean2);
         ac.close();
     }
 
