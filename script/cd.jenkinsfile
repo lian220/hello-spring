@@ -21,10 +21,9 @@ pipeline {
         stage('Deploy') {
            steps {
                sshagent(credentials: ['liantest']) {
-                     sh '''
-                       scp build/libs/*.jar ubuntu@172.31.37.197:/home/ubuntu
-                       ssh ubuntu@172.31.37.197 "sh bapo.sh" &
-                      '''
+                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.37.197'
+                     sh 'scp build/libs/*.jar ubuntu@172.31.37.197:/home/ubuntu'
+                     sh 'ssh ubuntu@172.31.37.197 "sh bapo.sh"'
                }
            }
        }
